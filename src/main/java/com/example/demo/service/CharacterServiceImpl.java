@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.CharacterDao;
 import com.example.demo.entity.Character;
+import com.example.demo.error.CharacterNotFoundException;
 
 @Service
 public class CharacterServiceImpl implements CharacterService {
@@ -80,7 +81,7 @@ public class CharacterServiceImpl implements CharacterService {
 			characterPage = String.format(characterPageTemplate, numPage);
 
 		}
-		return null;
+		throw new CharacterNotFoundException(characterName);
 	}
 
 	private String searchFastestVehicle(JSONArray vehiclesUrlList, JSONArray starshipsUrlList)

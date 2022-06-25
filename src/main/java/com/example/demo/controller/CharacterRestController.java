@@ -23,11 +23,6 @@ public class CharacterRestController {
 	public String findCharacterInfo(@RequestParam(value = "name", required = true) String characterName)
 			throws MalformedURLException, IOException {
 		Character character = characterService.getCharacter(characterName);
-
-		if (character == null) {
-			return String.format("%s not found.", characterName);
-		}
-
 		return String.format("%s", character.toString());
 	}
 }
